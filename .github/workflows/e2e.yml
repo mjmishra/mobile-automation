@@ -113,19 +113,11 @@ jobs:
             -gpu swiftshader_indirect
             -memory 2048
           disable-animations: true
-          pre-emulator-launch-script: |
-            echo "Setting up emulator..."
           script: |
-            echo "Emulator booted. Running tests..."
+            echo "Elumator is ready"
             adb wait-for-device
             adb shell input keyevent 82
-            mvn test \
-              -Dplatform=android \
-              -DANDROID_DEVICE=emulator-5554 \
-              -DANDROID_VERSION=${{ matrix.api-level }}.0 \
-              -DEXPLICIT_TIMEOUT=${{ env.EXPLICIT_TIMEOUT }} \
-              -DCOMMAND_TIMEOUT=${{ env.COMMAND_TIMEOUT }} \
-              -DAPPIUM_PORT=${{ env.APPIUM_PORT }}
+            mvn test -Dplatform=android -DANDROID_DEVICE=emulator-5554 -DANDROID_VERSION=${{ matrix.api-level }}.0
 
       # ── 8. Upload Appium logs on failure ──────────────────────────────────
       - name: Upload Appium server log
@@ -230,14 +222,7 @@ jobs:
 
       # ── 8. Run iOS tests ──────────────────────────────────────────────────
       - name: Run iOS tests on ${{ matrix.device }}
-        run: |
-          mvn test \
-            -Dplatform=ios \
-            -DIOS_DEVICE="${{ matrix.device }}" \
-            -DIOS_VERSION="${{ matrix.ios-version }}" \
-            -DEXPLICIT_TIMEOUT=${{ env.EXPLICIT_TIMEOUT }} \
-            -DCOMMAND_TIMEOUT=${{ env.COMMAND_TIMEOUT }} \
-            -DAPPIUM_PORT=${{ env.APPIUM_PORT }}
+        run: mvn test -Dplatform=ios -DIOS_DEVICE="${{ matrix.device }}" -DIOS_VERSION="${{ matrix.ios-version }}" -DCOMMAND_TIMEOUT=300 -DEXPLICIT_TIMEOUT=20
 
       # ── 9. Shutdown simulator ─────────────────────────────────────────────
       - name: Shutdown iOS Simulator
