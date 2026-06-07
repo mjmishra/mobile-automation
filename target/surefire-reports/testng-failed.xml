@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="1" name="Failed suite [Android Suite]" guice-stage="DEVELOPMENT" verbose="0">
+  <parameter name="platform" value="android"/>
+  <listeners>
+    <listener class-name="com.saucelabs.automation.utils.TestListener"/>
+  </listeners>
+  <test thread-count="1" name="State Persistence Tests – Android(failed)" verbose="0">
+    <classes>
+      <class name="com.saucelabs.automation.tests.StatePersistenceTest">
+        <methods>
+          <include name="tc_state_02_sessionClearedAfterFullReset"/>
+          <include name="loginAndAddToCart"/>
+          <include name="tc_state_01_cartPersistsAfterRestart"/>
+          <include name="setUp"/>
+          <include name="resolvePlatform"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.saucelabs.automation.tests.StatePersistenceTest -->
+    </classes>
+  </test> <!-- State Persistence Tests – Android(failed) -->
+</suite> <!-- Failed suite [Android Suite] -->

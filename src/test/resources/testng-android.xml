@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--
+    Android Test Suite
+    Run with: mvn test -Dplatform=android
+-->
+<suite name="Android Suite" verbose="1" thread-count="1">
+
+    <listeners>
+        <listener class-name="com.saucelabs.automation.utils.TestListener"/>
+    </listeners>
+
+    <parameter name="platform" value="android"/>
+
+    <test name="Login Tests – Android">
+        <classes>
+            <class name="com.saucelabs.automation.tests.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Checkout Tests – Android">
+        <classes>
+            <class name="com.saucelabs.automation.tests.CheckoutTest"/>
+        </classes>
+    </test>
+
+    <test name="State Persistence Tests – Android">
+        <classes>
+            <class name="com.saucelabs.automation.tests.StatePersistenceTest"/>
+        </classes>
+    </test>
+
+</suite>

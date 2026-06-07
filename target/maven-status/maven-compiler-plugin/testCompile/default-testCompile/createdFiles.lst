@@ -1,0 +1,5 @@
+com\saucelabs\automation\tests\CheckoutTest.class
+com\saucelabs\automation\helpers\TestData.class
+com\saucelabs\automation\tests\BaseTest.class
+com\saucelabs\automation\tests\StatePersistenceTest.class
+com\saucelabs\automation\tests\LoginTest.class

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--
+    Full Suite – both platforms
+    Run with: mvn test -Dplatform=all
+    (Used in CI where separate Android + iOS runners are available)
+-->
+<suite name="Full Suite" verbose="1" parallel="suites" thread-count="2">
+
+    <listeners>
+        <listener class-name="com.saucelabs.automation.utils.TestListener"/>
+    </listeners>
+
+    <suite-files>
+        <suite-file path="testng-android.xml"/>
+        <suite-file path="testng-ios.xml"/>
+    </suite-files>
+
+</suite>

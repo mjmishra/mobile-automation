@@ -1,0 +1,16 @@
+com\saucelabs\automation\screens\CheckoutScreen$PaymentDetails.class
+com\saucelabs\automation\utils\TestListener.class
+com\saucelabs\automation\screens\BasePage.class
+com\saucelabs\automation\screens\CheckoutScreen.class
+com\saucelabs\automation\config\Platform.class
+com\saucelabs\automation\screens\CartScreen.class
+com\saucelabs\automation\utils\ExtentReportManager.class
+com\saucelabs\automation\screens\ProductDetailScreen.class
+com\saucelabs\automation\screens\CheckoutScreen$ShippingDetails.class
+com\saucelabs\automation\screens\ProductCatalogScreen.class
+com\saucelabs\automation\config\CapabilityFactory.class
+com\saucelabs\automation\driver\DriverManager.class
+com\saucelabs\automation\config\ConfigManager.class
+com\saucelabs\automation\config\CapabilityFactory$1.class
+com\saucelabs\automation\driver\DriverManager$1.class
+com\saucelabs\automation\screens\LoginScreen.class

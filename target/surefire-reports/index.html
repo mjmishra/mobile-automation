@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <meta charset='utf-8'>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports1.css" rel="stylesheet" id="ultra" />
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" id="retro" disabled="false"/>
+    <script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
+      <br/>
+      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" title="Collapse/expand all the suites" class="collapse-all-link">
+          <img src="collapseall.gif" class="collapse-all-icon">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" panel-name="suite-Android_Suite" class="navigator-link">
+              <span class="suite-name border-failed">Android Suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" panel-name="test-xml-Android_Suite" class="navigator-link ">
+                    <span>C:\Users\agoda\Downloads\mobile-automation (2)\mobile-automation\src\test\resources\testng-android.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="testlist-Android_Suite" class="navigator-link ">
+                    <span class="test-stats">3 tests</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="group-Android_Suite" class="navigator-link ">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="times-Android_Suite" class="navigator-link ">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="reporter-Android_Suite" class="navigator-link ">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="ignored-methods-Android_Suite" class="navigator-link ">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" panel-name="chronological-Android_Suite" class="navigator-link ">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">8 methods, 2 failed,   6 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Android_Suite" class="hide-methods failed suite-Android_Suite"> (hide)</a> <!-- hide-methods failed suite-Android_Suite -->
+                      <a href="#" panel-name="suite-Android_Suite" class="show-methods failed suite-Android_Suite"> (show)</a> <!-- show-methods failed suite-Android_Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Android_Suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Android_Suite" title="com.saucelabs.automation.tests.StatePersistenceTest" class="method navigator-link" hash-for-method="tc_state_01_cartPersistsAfterRestart">tc_state_01_cartPersistsAfterRestart</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Android_Suite" title="com.saucelabs.automation.tests.StatePersistenceTest" class="method navigator-link" hash-for-method="tc_state_02_sessionClearedAfterFullReset">tc_state_02_sessionClearedAfterFullReset</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Android_Suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Android_Suite" class="hide-methods passed suite-Android_Suite"> (hide)</a> <!-- hide-methods passed suite-Android_Suite -->
+                      <a href="#" panel-name="suite-Android_Suite" class="show-methods passed suite-Android_Suite"> (show)</a> <!-- show-methods passed suite-Android_Suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Android_Suite">
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Android_Suite" title="com.saucelabs.automation.tests.CheckoutTest" class="method navigator-link" hash-for-method="tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation">tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Android_Suite" title="com.saucelabs.automation.tests.CheckoutTest" class="method navigator-link" hash-for-method="tc_checkout_02_addToCart_badgeShouldIncrement">tc_checkout_02_addToCart_badgeShouldIncrement</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Android_Suite" title="com.saucelabs.automation.tests.CheckoutTest" class="method navigator-link" hash-for-method="tc_checkout_03_cartPersistsAfterBackground">tc_checkout_03_cartPersistsAfterBackground</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Android_Suite" title="com.saucelabs.automation.tests.LoginTest" class="method navigator-link" hash-for-method="tc_login_01_validCredentials_shouldReachCatalog">tc_login_01_validCredentials_shouldReachCatalog</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Android_Suite" title="com.saucelabs.automation.tests.LoginTest" class="method navigator-link" hash-for-method="tc_login_02_invalidCredentials_shouldShowError">tc_login_02_invalidCredentials_shouldShowError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Android_Suite" title="com.saucelabs.automation.tests.LoginTest" class="method navigator-link" hash-for-method="tc_login_03_emptyCredentials_shouldShowError">tc_login_03_emptyCredentials_shouldShowError</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Android_Suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Android_Suite" class="panel Android_Suite">
+          <div class="suite-Android_Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.saucelabs.automation.tests.StatePersistenceTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="tc_state_01_cartPersistsAfterRestart">
+                  </a> <!-- tc_state_01_cartPersistsAfterRestart -->
+                  <span class="method-name">tc_state_01_cartPersistsAfterRestart</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by AppiumBy.androidUIAutomator: new UiSelector().resourceId(&quot;com.saucelabs.mydemoapp.android:id/productTV&quot;) (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.3&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:\Users\agoda\Downloads\mo..., appium:appActivity: com.saucelabs.mydemoapp.and..., appium:appPackage: com.saucelabs.mydemoapp.and..., appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:\Users\agoda\Downloads\mo..., appActivity: com.saucelabs.mydemoapp.and..., appPackage: com.saucelabs.mydemoapp.and..., autoGrantPermissions: true, automationName: UiAutomator2, deviceName: Galaxy, fullReset: false, newCommandTimeout: 240, noReset: false, platformName: android, platformVersion: 14}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-A528B, appium:deviceName: R5CR932TQ4Y, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: R5CR932TQ4Y, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 240, appium:noReset: false, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 87, appium:takesScreenshot: true, appium:viewportRect: {height: 2313, left: 0, top: 87, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: d4e61c6e-be32-4847-aa1a-6b2b909a7754
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.saucelabs.automation.screens.BasePage.waitForVisible(BasePage.java:86)
+	at com.saucelabs.automation.screens.CartScreen.openCart(CartScreen.java:86)
+	at com.saucelabs.automation.tests.StatePersistenceTest.tc_state_01_cartPersistsAfterRestart(StatePersistenceTest.java:53)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Cart items should persist after a full app restart)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="tc_state_02_sessionClearedAfterFullReset">
+                  </a> <!-- tc_state_02_sessionClearedAfterFullReset -->
+                  <span class="method-name">tc_state_02_sessionClearedAfterFullReset</span>
+                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by AppiumBy.androidUIAutomator: new UiSelector().resourceId(&quot;com.saucelabs.mydemoapp.android:id/nameET&quot;) (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
+System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.3&apos;
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:\Users\agoda\Downloads\mo..., appium:appActivity: com.saucelabs.mydemoapp.and..., appium:appPackage: com.saucelabs.mydemoapp.and..., appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:\Users\agoda\Downloads\mo..., appActivity: com.saucelabs.mydemoapp.and..., appPackage: com.saucelabs.mydemoapp.and..., autoGrantPermissions: true, automationName: UiAutomator2, deviceName: Galaxy, fullReset: false, newCommandTimeout: 240, noReset: false, platformName: android, platformVersion: 14}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-A528B, appium:deviceName: R5CR932TQ4Y, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: R5CR932TQ4Y, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 240, appium:noReset: false, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 87, appium:takesScreenshot: true, appium:viewportRect: {height: 2313, left: 0, top: 87, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: ef3f1113-7658-4e66-8307-4823f33d180b
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at com.saucelabs.automation.screens.BasePage.waitForVisible(BasePage.java:86)
+	at com.saucelabs.automation.screens.LoginScreen.waitForScreen(LoginScreen.java:75)
+	at com.saucelabs.automation.tests.StatePersistenceTest.tc_state_02_sessionClearedAfterFullReset(StatePersistenceTest.java:84)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
+... Removed 29 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(User should be logged out after a full app data reset)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Android_Suite-class-failed -->
+          <div class="suite-Android_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.saucelabs.automation.tests.CheckoutTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation">
+                  </a> <!-- tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation -->
+                  <span class="method-name">tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation</span>
+                  <em>
+(Full flow: browse catalog → add to cart → checkout → confirmation)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="tc_checkout_02_addToCart_badgeShouldIncrement">
+                  </a> <!-- tc_checkout_02_addToCart_badgeShouldIncrement -->
+                  <span class="method-name">tc_checkout_02_addToCart_badgeShouldIncrement</span>
+                  <em>
+(Cart badge count should increment when a product is added)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="tc_checkout_03_cartPersistsAfterBackground">
+                  </a> <!-- tc_checkout_03_cartPersistsAfterBackground -->
+                  <span class="method-name">tc_checkout_03_cartPersistsAfterBackground</span>
+                  <em>
+(Cart items should persist after the app is backgrounded and restored)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Android_Suite-class-passed -->
+          <div class="suite-Android_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.saucelabs.automation.tests.LoginTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="tc_login_01_validCredentials_shouldReachCatalog">
+                  </a> <!-- tc_login_01_validCredentials_shouldReachCatalog -->
+                  <span class="method-name">tc_login_01_validCredentials_shouldReachCatalog</span>
+                  <em>
+(Valid credentials should navigate to the product catalog)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="tc_login_02_invalidCredentials_shouldShowError">
+                  </a> <!-- tc_login_02_invalidCredentials_shouldShowError -->
+                  <span class="method-name">tc_login_02_invalidCredentials_shouldShowError</span>
+                  <em>
+(Invalid credentials should show an error message)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="tc_login_03_emptyCredentials_shouldShowError">
+                  </a> <!-- tc_login_03_emptyCredentials_shouldShowError -->
+                  <span class="method-name">tc_login_03_emptyCredentials_shouldShowError</span>
+                  <em>
+(Empty credentials should show an error message)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Android_Suite-class-passed -->
+        </div> <!-- panel Android_Suite -->
+        <div panel-name="test-xml-Android_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\agoda\Downloads\mobile-automation (2)\mobile-automation\src\test\resources\testng-android.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite thread-count=&quot;1&quot; name=&quot;Android Suite&quot; guice-stage=&quot;DEVELOPMENT&quot; verbose=&quot;0&quot;&gt;
+  &lt;parameter name=&quot;platform&quot; value=&quot;android&quot;/&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.saucelabs.automation.utils.TestListener&quot;/&gt;
+  &lt;/listeners&gt;
+  &lt;test thread-count=&quot;1&quot; name=&quot;Login Tests – Android&quot; verbose=&quot;0&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.saucelabs.automation.tests.LoginTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Login Tests – Android --&gt;
+  &lt;test thread-count=&quot;1&quot; name=&quot;Checkout Tests – Android&quot; verbose=&quot;0&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.saucelabs.automation.tests.CheckoutTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Checkout Tests – Android --&gt;
+  &lt;test thread-count=&quot;1&quot; name=&quot;State Persistence Tests – Android&quot; verbose=&quot;0&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;com.saucelabs.automation.tests.StatePersistenceTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- State Persistence Tests – Android --&gt;
+&lt;/suite&gt; &lt;!-- Android Suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Android_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Android Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Login Tests – Android (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">Checkout Tests – Android (1 class)</span>
+              </li>
+              <li>
+                <span class="test-name">State Persistence Tests – Android (1 class)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Android_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Android Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Android_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Android Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Android_Suite');
+function tableData_Android_Suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(8);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation')
+data.setCell(0, 2, 'com.saucelabs.automation.tests.CheckoutTest')
+data.setCell(0, 3, 30258);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'tc_state_01_cartPersistsAfterRestart')
+data.setCell(1, 2, 'com.saucelabs.automation.tests.StatePersistenceTest')
+data.setCell(1, 3, 19604);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'tc_state_02_sessionClearedAfterFullReset')
+data.setCell(2, 2, 'com.saucelabs.automation.tests.StatePersistenceTest')
+data.setCell(2, 3, 17024);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'tc_checkout_03_cartPersistsAfterBackground')
+data.setCell(3, 2, 'com.saucelabs.automation.tests.CheckoutTest')
+data.setCell(3, 3, 8846);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'tc_login_02_invalidCredentials_shouldShowError')
+data.setCell(4, 2, 'com.saucelabs.automation.tests.LoginTest')
+data.setCell(4, 3, 8045);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'tc_login_01_validCredentials_shouldReachCatalog')
+data.setCell(5, 2, 'com.saucelabs.automation.tests.LoginTest')
+data.setCell(5, 3, 8036);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'tc_login_03_emptyCredentials_shouldShowError')
+data.setCell(6, 2, 'com.saucelabs.automation.tests.LoginTest')
+data.setCell(6, 3, 7914);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'tc_checkout_02_addToCart_badgeShouldIncrement')
+data.setCell(7, 2, 'com.saucelabs.automation.tests.CheckoutTest')
+data.setCell(7, 3, 2119);
+window.suiteTableData['Android_Suite']= { tableData: data, tableDiv: 'times-div-Android_Suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
+              <div id="times-div-Android_Suite">
+              </div> <!-- times-div-Android_Suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Android_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Android Suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Android_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Android_Suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.saucelabs.automation.tests.StatePersistenceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-suite before">
+                <span class="method-name">resolvePlatform</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.saucelabs.automation.tests.LoginTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">406 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">tc_login_01_validCredentials_shouldReachCatalog</span>
+                <span class="method-start">7166 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=tc_login_01_validCredentials_shouldReachCatalog status=SUCCESS method=LoginTest.tc_...)</span>
+                <span class="method-start">15207 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">16264 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">tc_login_02_invalidCredentials_shouldShowError</span>
+                <span class="method-start">21953 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=tc_login_02_invalidCredentials_shouldShowError status=SUCCESS method=LoginTest.tc_l...)</span>
+                <span class="method-start">30000 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">31104 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">tc_login_03_emptyCredentials_shouldShowError</span>
+                <span class="method-start">36443 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=tc_login_03_emptyCredentials_shouldShowError status=SUCCESS method=LoginTest.tc_log...)</span>
+                <span class="method-start">44360 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.saucelabs.automation.tests.CheckoutTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">45960 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">loginToCatalog</span>
+                <span class="method-start">52374 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation</span>
+                <span class="method-start">60544 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation status=SUCCESS method=Checko...)</span>
+                <span class="method-start">90804 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">91978 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">loginToCatalog</span>
+                <span class="method-start">98165 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">tc_checkout_02_addToCart_badgeShouldIncrement</span>
+                <span class="method-start">106892 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=tc_checkout_02_addToCart_badgeShouldIncrement status=SUCCESS method=CheckoutTest.tc...)</span>
+                <span class="method-start">109014 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">110107 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">loginToCatalog</span>
+                <span class="method-start">115112 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">tc_checkout_03_cartPersistsAfterBackground</span>
+                <span class="method-start">123241 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=tc_checkout_03_cartPersistsAfterBackground status=SUCCESS method=CheckoutTest.tc_ch...)</span>
+                <span class="method-start">132089 ms</span>
+              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.saucelabs.automation.tests.StatePersistenceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">133359 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">loginAndAddToCart</span>
+                <span class="method-start">139753 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">tc_state_01_cartPersistsAfterRestart</span>
+                <span class="method-start">149064 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=tc_state_01_cartPersistsAfterRestart status=FAILURE method=StatePersistenceTest.tc_...)</span>
+                <span class="method-start">168680 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">170262 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">loginAndAddToCart</span>
+                <span class="method-start">176401 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">tc_state_02_sessionClearedAfterFullReset</span>
+                <span class="method-start">185976 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDown([TestResult name=tc_state_02_sessionClearedAfterFullReset status=FAILURE method=StatePersistenceTest...)</span>
+                <span class="method-start">203006 ms</span>
+              </div> <!-- configuration-method after -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+<script type="text/javascript" src="testng-reports2.js"></script>
+</html>

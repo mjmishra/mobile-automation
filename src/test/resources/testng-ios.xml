@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<!--
+    iOS Test Suite
+    Run with: mvn test -Dplatform=ios
+-->
+<suite name="iOS Suite" verbose="1" thread-count="1">
+
+    <listeners>
+        <listener class-name="com.saucelabs.automation.utils.TestListener"/>
+    </listeners>
+
+    <parameter name="platform" value="ios"/>
+
+    <test name="Login Tests – iOS">
+        <classes>
+            <class name="com.saucelabs.automation.tests.LoginTest"/>
+        </classes>
+    </test>
+
+    <test name="Checkout Tests – iOS">
+        <classes>
+            <class name="com.saucelabs.automation.tests.CheckoutTest"/>
+        </classes>
+    </test>
+
+    <test name="State Persistence Tests – iOS">
+        <classes>
+            <class name="com.saucelabs.automation.tests.StatePersistenceTest"/>
+        </classes>
+    </test>
+
+</suite>
