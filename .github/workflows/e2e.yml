@@ -211,7 +211,7 @@ jobs:
           APP_URL=$(curl -s https://api.github.com/repos/saucelabs/my-demo-app-ios/releases/latest \
             | grep "browser_download_url.*\.zip" \
             | grep -v "XCUITest" \
-            | grep -v "Runner" \ 
+            | grep -v "Runner" \
             | head -1 \
             | cut -d '"' -f 4)
           echo "App URL: $APP_URL"
