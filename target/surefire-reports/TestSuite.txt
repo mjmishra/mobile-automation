@@ -1,64 +1,20 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 206.1 s <<< FAILURE! -- in TestSuite
-com.saucelabs.automation.tests.StatePersistenceTest.tc_state_01_cartPersistsAfterRestart -- Time elapsed: 19.62 s <<< FAILURE!
+Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 208.6 s <<< FAILURE! -- in TestSuite
+com.saucelabs.automation.tests.StatePersistenceTest.tc_state_01_cartPersistsAfterRestart -- Time elapsed: 19.74 s <<< FAILURE!
 org.openqa.selenium.TimeoutException: 
 Expected condition failed: waiting for visibility of element located by AppiumBy.androidUIAutomator: new UiSelector().resourceId("com.saucelabs.mydemoapp.android:id/productTV") (tried for 15 second(s) with 500 milliseconds interval)
 Build info: version: '4.13.0', revision: 'ba948ece5b*'
 System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.3'
 Driver info: io.appium.java_client.android.AndroidDriver
 Capabilities {appium:app: C:\Users\agoda\Downloads\mo..., appium:appActivity: com.saucelabs.mydemoapp.and..., appium:appPackage: com.saucelabs.mydemoapp.and..., appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:\Users\agoda\Downloads\mo..., appActivity: com.saucelabs.mydemoapp.and..., appPackage: com.saucelabs.mydemoapp.and..., autoGrantPermissions: true, automationName: UiAutomator2, deviceName: Galaxy, fullReset: false, newCommandTimeout: 240, noReset: false, platformName: android, platformVersion: 14}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-A528B, appium:deviceName: R5CR932TQ4Y, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: R5CR932TQ4Y, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 240, appium:noReset: false, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 87, appium:takesScreenshot: true, appium:viewportRect: {height: 2313, left: 0, top: 87, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: d4e61c6e-be32-4847-aa1a-6b2b909a7754
+Session ID: 206cea99-1eee-434c-bc92-4cd6a4b0f339
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
 	at com.saucelabs.automation.screens.BasePage.waitForVisible(BasePage.java:86)
-	at com.saucelabs.automation.screens.CartScreen.openCart(CartScreen.java:86)
+	at com.saucelabs.automation.screens.CartScreen.openCart(CartScreen.java:76)
 	at com.saucelabs.automation.tests.StatePersistenceTest.tc_state_01_cartPersistsAfterRestart(StatePersistenceTest.java:53)
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
-	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)
-	at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:664)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:228)
-	at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:63)
-	at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:961)
-	at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:201)
-	at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:148)
-	at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-	at org.testng.TestRunner.privateRun(TestRunner.java:819)
-	at org.testng.TestRunner.run(TestRunner.java:619)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:443)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:437)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:397)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:336)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1301)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1228)
-	at org.testng.TestNG.runSuites(TestNG.java:1134)
-	at org.testng.TestNG.run(TestNG.java:1101)
-	at org.apache.maven.surefire.testng.TestNGExecutor.run(TestNGExecutor.java:308)
-	at org.apache.maven.surefire.testng.TestNGXmlTestSuite.execute(TestNGXmlTestSuite.java:71)
-	at org.apache.maven.surefire.testng.TestNGProvider.invoke(TestNGProvider.java:113)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:385)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:162)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:507)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:495)
-
-com.saucelabs.automation.tests.StatePersistenceTest.tc_state_02_sessionClearedAfterFullReset -- Time elapsed: 17.03 s <<< FAILURE!
-org.openqa.selenium.TimeoutException: 
-Expected condition failed: waiting for visibility of element located by AppiumBy.androidUIAutomator: new UiSelector().resourceId("com.saucelabs.mydemoapp.android:id/nameET") (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: '4.13.0', revision: 'ba948ece5b*'
-System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.3'
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {appium:app: C:\Users\agoda\Downloads\mo..., appium:appActivity: com.saucelabs.mydemoapp.and..., appium:appPackage: com.saucelabs.mydemoapp.and..., appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:\Users\agoda\Downloads\mo..., appActivity: com.saucelabs.mydemoapp.and..., appPackage: com.saucelabs.mydemoapp.and..., autoGrantPermissions: true, automationName: UiAutomator2, deviceName: Galaxy, fullReset: false, newCommandTimeout: 240, noReset: false, platformName: android, platformVersion: 14}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-A528B, appium:deviceName: R5CR932TQ4Y, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: R5CR932TQ4Y, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 240, appium:noReset: false, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 87, appium:takesScreenshot: true, appium:viewportRect: {height: 2313, left: 0, top: 87, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: ef3f1113-7658-4e66-8307-4823f33d180b
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at com.saucelabs.automation.screens.BasePage.waitForVisible(BasePage.java:86)
-	at com.saucelabs.automation.screens.LoginScreen.waitForScreen(LoginScreen.java:75)
-	at com.saucelabs.automation.tests.StatePersistenceTest.tc_state_02_sessionClearedAfterFullReset(StatePersistenceTest.java:84)
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565)
 	at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:139)

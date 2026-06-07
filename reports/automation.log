@@ -108,3 +108,107 @@ Session ID: ef3f1113-7658-4e66-8307-4823f33d180b
 2026-06-07 00:35:46.053 [main] INFO  c.s.automation.utils.TestListener – Screenshot captured for: tc_state_02_sessionClearedAfterFullReset
 2026-06-07 00:35:47.120 [main] INFO  c.s.automation.driver.DriverManager – Driver session closed.
 2026-06-07 00:35:47.226 [main] INFO  c.s.automation.utils.TestListener – Test suite finished. Report written.
+2026-06-07 14:26:15.059 [main] INFO  c.s.automation.utils.TestListener – Test suite starting – platform: ANDROID
+2026-06-07 14:26:15.459 [main] INFO  c.s.automation.driver.DriverManager – Initialising ANDROID driver → http://localhost:4723
+2026-06-07 14:26:26.317 [main] INFO  c.s.automation.driver.DriverManager – ANDROID driver ready. Session ID: 9f0d5dc5-22bd-4f09-957a-a9e8f0aba760
+2026-06-07 14:26:26.338 [main] INFO  c.s.automation.utils.TestListener – ▶ START  LoginTest :: tc_login_01_validCredentials_shouldReachCatalog
+2026-06-07 14:26:27.657 [main] INFO  c.s.automation.screens.LoginScreen – HomeScreen is displayed.
+2026-06-07 14:26:30.417 [main] INFO  c.s.automation.screens.LoginScreen – LoginScreen is displayed.
+2026-06-07 14:26:30.418 [main] INFO  c.s.automation.screens.LoginScreen – Logging in as 'bob@example.com'
+2026-06-07 14:26:34.481 [main] INFO  c.s.a.screens.ProductCatalogScreen – ProductCatalogScreen is displayed.
+2026-06-07 14:26:34.488 [main] INFO  c.s.automation.utils.TestListener – ✅ PASS   tc_login_01_validCredentials_shouldReachCatalog
+2026-06-07 14:26:35.726 [main] INFO  c.s.automation.driver.DriverManager – Driver session closed.
+2026-06-07 14:26:35.732 [main] INFO  c.s.automation.driver.DriverManager – Initialising ANDROID driver → http://localhost:4723
+2026-06-07 14:26:43.348 [main] INFO  c.s.automation.driver.DriverManager – ANDROID driver ready. Session ID: 354042c5-f84d-412c-b138-5bd783e837e9
+2026-06-07 14:26:43.349 [main] INFO  c.s.automation.utils.TestListener – ▶ START  LoginTest :: tc_login_02_invalidCredentials_shouldShowError
+2026-06-07 14:26:44.812 [main] INFO  c.s.automation.screens.LoginScreen – HomeScreen is displayed.
+2026-06-07 14:26:47.506 [main] INFO  c.s.automation.screens.LoginScreen – LoginScreen is displayed.
+2026-06-07 14:26:47.508 [main] INFO  c.s.automation.screens.LoginScreen – Logging in as '      '
+2026-06-07 14:26:51.157 [main] INFO  c.s.automation.utils.TestListener – ✅ PASS   tc_login_02_invalidCredentials_shouldShowError
+2026-06-07 14:26:52.312 [main] INFO  c.s.automation.driver.DriverManager – Driver session closed.
+2026-06-07 14:26:52.317 [main] INFO  c.s.automation.driver.DriverManager – Initialising ANDROID driver → http://localhost:4723
+2026-06-07 14:27:00.409 [main] INFO  c.s.automation.driver.DriverManager – ANDROID driver ready. Session ID: 6d24247c-ab05-401d-974e-00183340307f
+2026-06-07 14:27:00.411 [main] INFO  c.s.automation.utils.TestListener – ▶ START  LoginTest :: tc_login_03_emptyCredentials_shouldShowError
+2026-06-07 14:27:01.925 [main] INFO  c.s.automation.screens.LoginScreen – HomeScreen is displayed.
+2026-06-07 14:27:04.683 [main] INFO  c.s.automation.screens.LoginScreen – LoginScreen is displayed.
+2026-06-07 14:27:04.685 [main] INFO  c.s.automation.screens.LoginScreen – Logging in as ''
+2026-06-07 14:27:08.247 [main] INFO  c.s.automation.utils.TestListener – ✅ PASS   tc_login_03_emptyCredentials_shouldShowError
+2026-06-07 14:27:09.495 [main] INFO  c.s.automation.driver.DriverManager – Driver session closed.
+2026-06-07 14:27:10.002 [main] INFO  c.s.automation.utils.TestListener – Test suite finished. Report written.
+2026-06-07 14:27:10.043 [main] INFO  c.s.automation.utils.TestListener – Test suite starting – platform: ANDROID
+2026-06-07 14:27:10.047 [main] INFO  c.s.automation.driver.DriverManager – Initialising ANDROID driver → http://localhost:4723
+2026-06-07 14:27:17.641 [main] INFO  c.s.automation.driver.DriverManager – ANDROID driver ready. Session ID: f1bf2c66-38a0-4fcd-9e89-0148ff31cd69
+2026-06-07 14:27:19.105 [main] INFO  c.s.automation.screens.LoginScreen – HomeScreen is displayed.
+2026-06-07 14:27:21.803 [main] INFO  c.s.automation.screens.LoginScreen – LoginScreen is displayed.
+2026-06-07 14:27:21.803 [main] INFO  c.s.automation.screens.LoginScreen – Logging in as 'bob@example.com'
+2026-06-07 14:27:25.823 [main] INFO  c.s.a.screens.ProductCatalogScreen – ProductCatalogScreen is displayed.
+2026-06-07 14:27:25.827 [main] INFO  c.s.automation.utils.TestListener – ▶ START  CheckoutTest :: tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation
+2026-06-07 14:27:26.991 [main] INFO  c.s.a.screens.ProductDetailScreen – ProductDetailScreen is displayed.
+2026-06-07 14:27:26.992 [main] INFO  c.s.a.screens.ProductDetailScreen – Tapping Add To Cart
+2026-06-07 14:27:27.903 [main] INFO  c.s.automation.screens.CartScreen – Opening cart via tab icon
+2026-06-07 14:27:29.106 [main] INFO  c.s.automation.screens.CartScreen – Proceeding to checkout
+2026-06-07 14:27:29.452 [main] INFO  c.s.a.screens.CheckoutScreen – Filling shipping info
+2026-06-07 14:27:45.053 [main] INFO  c.s.a.screens.CheckoutScreen – Filling payment info
+2026-06-07 14:27:54.363 [main] INFO  c.s.a.screens.CheckoutScreen – Placing order
+2026-06-07 14:27:54.999 [main] INFO  c.s.a.screens.CheckoutScreen – Waiting for order confirmation
+2026-06-07 14:27:55.822 [main] INFO  c.s.automation.utils.TestListener – ✅ PASS   tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation
+2026-06-07 14:27:57.034 [main] INFO  c.s.automation.driver.DriverManager – Driver session closed.
+2026-06-07 14:27:57.038 [main] INFO  c.s.automation.driver.DriverManager – Initialising ANDROID driver → http://localhost:4723
+2026-06-07 14:28:04.046 [main] INFO  c.s.automation.driver.DriverManager – ANDROID driver ready. Session ID: b9be141c-a452-4623-b423-ca6c77c9fb1f
+2026-06-07 14:28:05.523 [main] INFO  c.s.automation.screens.LoginScreen – HomeScreen is displayed.
+2026-06-07 14:28:08.205 [main] INFO  c.s.automation.screens.LoginScreen – LoginScreen is displayed.
+2026-06-07 14:28:08.206 [main] INFO  c.s.automation.screens.LoginScreen – Logging in as 'bob@example.com'
+2026-06-07 14:28:12.163 [main] INFO  c.s.a.screens.ProductCatalogScreen – ProductCatalogScreen is displayed.
+2026-06-07 14:28:12.164 [main] INFO  c.s.automation.utils.TestListener – ▶ START  CheckoutTest :: tc_checkout_02_addToCart_badgeShouldIncrement
+2026-06-07 14:28:13.291 [main] INFO  c.s.a.screens.ProductDetailScreen – ProductDetailScreen is displayed.
+2026-06-07 14:28:13.293 [main] INFO  c.s.a.screens.ProductDetailScreen – Tapping Add To Cart
+2026-06-07 14:28:14.352 [main] INFO  c.s.automation.utils.TestListener – ✅ PASS   tc_checkout_02_addToCart_badgeShouldIncrement
+2026-06-07 14:28:15.511 [main] INFO  c.s.automation.driver.DriverManager – Driver session closed.
+2026-06-07 14:28:15.515 [main] INFO  c.s.automation.driver.DriverManager – Initialising ANDROID driver → http://localhost:4723
+2026-06-07 14:28:22.137 [main] INFO  c.s.automation.driver.DriverManager – ANDROID driver ready. Session ID: d202586d-d1c9-43c2-a733-0ccff4ded6ef
+2026-06-07 14:28:23.641 [main] INFO  c.s.automation.screens.LoginScreen – HomeScreen is displayed.
+2026-06-07 14:28:26.326 [main] INFO  c.s.automation.screens.LoginScreen – LoginScreen is displayed.
+2026-06-07 14:28:26.327 [main] INFO  c.s.automation.screens.LoginScreen – Logging in as 'bob@example.com'
+2026-06-07 14:28:30.313 [main] INFO  c.s.a.screens.ProductCatalogScreen – ProductCatalogScreen is displayed.
+2026-06-07 14:28:30.315 [main] INFO  c.s.automation.utils.TestListener – ▶ START  CheckoutTest :: tc_checkout_03_cartPersistsAfterBackground
+2026-06-07 14:28:31.413 [main] INFO  c.s.a.screens.ProductDetailScreen – ProductDetailScreen is displayed.
+2026-06-07 14:28:31.414 [main] INFO  c.s.a.screens.ProductDetailScreen – Tapping Add To Cart
+2026-06-07 14:28:39.113 [main] INFO  c.s.a.screens.ProductCatalogScreen – ProductCatalogScreen is displayed.
+2026-06-07 14:28:39.226 [main] INFO  c.s.automation.utils.TestListener – ✅ PASS   tc_checkout_03_cartPersistsAfterBackground
+2026-06-07 14:28:40.474 [main] INFO  c.s.automation.driver.DriverManager – Driver session closed.
+2026-06-07 14:28:40.584 [main] INFO  c.s.automation.utils.TestListener – Test suite finished. Report written.
+2026-06-07 14:28:40.592 [main] INFO  c.s.automation.utils.TestListener – Test suite starting – platform: ANDROID
+2026-06-07 14:28:40.595 [main] INFO  c.s.automation.driver.DriverManager – Initialising ANDROID driver → http://localhost:4723
+2026-06-07 14:28:46.912 [main] INFO  c.s.automation.driver.DriverManager – ANDROID driver ready. Session ID: 206cea99-1eee-434c-bc92-4cd6a4b0f339
+2026-06-07 14:28:48.381 [main] INFO  c.s.automation.screens.LoginScreen – HomeScreen is displayed.
+2026-06-07 14:28:51.009 [main] INFO  c.s.automation.screens.LoginScreen – LoginScreen is displayed.
+2026-06-07 14:28:51.009 [main] INFO  c.s.automation.screens.LoginScreen – Logging in as 'bob@example.com'
+2026-06-07 14:28:54.980 [main] INFO  c.s.a.screens.ProductCatalogScreen – ProductCatalogScreen is displayed.
+2026-06-07 14:28:56.147 [main] INFO  c.s.a.screens.ProductDetailScreen – ProductDetailScreen is displayed.
+2026-06-07 14:28:56.148 [main] INFO  c.s.a.screens.ProductDetailScreen – Tapping Add To Cart
+2026-06-07 14:28:56.488 [main] INFO  c.s.automation.utils.TestListener – ▶ START  StatePersistenceTest :: tc_state_01_cartPersistsAfterRestart
+2026-06-07 14:29:00.435 [main] INFO  c.s.a.screens.ProductCatalogScreen – ProductCatalogScreen is displayed.
+2026-06-07 14:29:00.437 [main] INFO  c.s.automation.screens.CartScreen – Opening cart via tab icon
+2026-06-07 14:29:16.221 [main] ERROR c.s.automation.utils.TestListener – ❌ FAIL   tc_state_01_cartPersistsAfterRestart – Expected condition failed: waiting for visibility of element located by AppiumBy.androidUIAutomator: new UiSelector().resourceId("com.saucelabs.mydemoapp.android:id/productTV") (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: '4.13.0', revision: 'ba948ece5b*'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '25.0.3'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities {appium:app: C:\Users\agoda\Downloads\mo..., appium:appActivity: com.saucelabs.mydemoapp.and..., appium:appPackage: com.saucelabs.mydemoapp.and..., appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:\Users\agoda\Downloads\mo..., appActivity: com.saucelabs.mydemoapp.and..., appPackage: com.saucelabs.mydemoapp.and..., autoGrantPermissions: true, automationName: UiAutomator2, deviceName: Galaxy, fullReset: false, newCommandTimeout: 240, noReset: false, platformName: android, platformVersion: 14}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-A528B, appium:deviceName: R5CR932TQ4Y, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: R5CR932TQ4Y, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 240, appium:noReset: false, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 87, appium:takesScreenshot: true, appium:viewportRect: {height: 2313, left: 0, top: 87, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 206cea99-1eee-434c-bc92-4cd6a4b0f339
+2026-06-07 14:29:16.222 [main] WARN  c.s.automation.utils.TestListener – No screenshot found – ensure captureScreenshot() is called in tearDown()
+2026-06-07 14:29:16.718 [main] INFO  c.s.automation.utils.TestListener – Screenshot captured for: tc_state_01_cartPersistsAfterRestart
+2026-06-07 14:29:17.989 [main] INFO  c.s.automation.driver.DriverManager – Driver session closed.
+2026-06-07 14:29:17.992 [main] INFO  c.s.automation.driver.DriverManager – Initialising ANDROID driver → http://localhost:4723
+2026-06-07 14:29:25.674 [main] INFO  c.s.automation.driver.DriverManager – ANDROID driver ready. Session ID: 18514d7a-4436-4d96-9ddd-0674bbabf93a
+2026-06-07 14:29:27.134 [main] INFO  c.s.automation.screens.LoginScreen – HomeScreen is displayed.
+2026-06-07 14:29:29.774 [main] INFO  c.s.automation.screens.LoginScreen – LoginScreen is displayed.
+2026-06-07 14:29:29.774 [main] INFO  c.s.automation.screens.LoginScreen – Logging in as 'bob@example.com'
+2026-06-07 14:29:33.797 [main] INFO  c.s.a.screens.ProductCatalogScreen – ProductCatalogScreen is displayed.
+2026-06-07 14:29:34.861 [main] INFO  c.s.a.screens.ProductDetailScreen – ProductDetailScreen is displayed.
+2026-06-07 14:29:34.861 [main] INFO  c.s.a.screens.ProductDetailScreen – Tapping Add To Cart
+2026-06-07 14:29:35.191 [main] INFO  c.s.automation.utils.TestListener – ▶ START  StatePersistenceTest :: tc_state_02_sessionClearedAfterFullReset
+2026-06-07 14:29:36.142 [main] INFO  c.s.a.screens.ProductCatalogScreen – ProductCatalogScreen is displayed.
+2026-06-07 14:29:39.371 [main] INFO  c.s.automation.screens.LoginScreen – HomeScreen is displayed.
+2026-06-07 14:29:41.029 [main] INFO  c.s.automation.utils.TestListener – ✅ PASS   tc_state_02_sessionClearedAfterFullReset
+2026-06-07 14:29:42.231 [main] INFO  c.s.automation.driver.DriverManager – Driver session closed.
+2026-06-07 14:29:42.335 [main] INFO  c.s.automation.utils.TestListener – Test suite finished. Report written.

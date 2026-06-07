@@ -9,7 +9,6 @@
     <classes>
       <class name="com.saucelabs.automation.tests.StatePersistenceTest">
         <methods>
-          <include name="tc_state_02_sessionClearedAfterFullReset"/>
           <include name="loginAndAddToCart"/>
           <include name="tc_state_01_cartPersistsAfterRestart"/>
           <include name="setUp"/>

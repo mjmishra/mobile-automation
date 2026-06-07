@@ -2,6 +2,7 @@ package com.saucelabs.automation.screens;
 
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
+import org.testng.Assert;
 
 public class LoginScreen extends BasePage {
 
@@ -58,6 +59,19 @@ public class LoginScreen extends BasePage {
     }
 
     // ── Actions ───────────────────────────────────────────────────────────
+    
+    public LoginScreen waitForHomeScreen() {
+        waitForVisible(hamburgerMenu());
+        log.info("HomeScreen is displayed.");
+        return this;
+    	
+    }
+    public boolean verifyUserLoggedOutStateAfterAppReset()
+    {
+        tap(hamburgerMenu());
+        waitForVisible(logInLink());
+        return isDisplayed(logInLink());	
+    }
     
     public void openLoginScreen()
     {

@@ -81,10 +81,10 @@ public class StatePersistenceTest extends BaseTest {
             Map.of("appId", appId));
 
         step("Verify login screen is shown (session was not retained)");
-        loginScreen.waitForScreen();
-        Assert.assertFalse(
-            catalogScreen.isDisplayed(),
-            "Catalog should NOT be displayed after a full reset – user should be logged out"
+        loginScreen.waitForHomeScreen();
+        Assert.assertTrue(
+            loginScreen.verifyUserLoggedOutStateAfterAppReset(),
+            "Login link should be displayed after a full reset – user should be logged out"
         );
     }
 }

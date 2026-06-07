@@ -25,7 +25,7 @@
       <span class="top-banner-title-font">Test results</span>
       <button id="button" class="button">Switch Retro Theme</button> <!-- button -->
       <br/>
-      <span class="top-banner-font-1">1 suite, 2 failed tests</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">8 methods, 2 failed,   6 passed</span>
+                    <span class="method-stats">8 methods, 1 failed,   7 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title failed">Failed methods</span>
@@ -104,11 +104,6 @@
                       <span>
                         <img src="failed.png" width="3%"/>
                         <a href="#" panel-name="suite-Android_Suite" title="com.saucelabs.automation.tests.StatePersistenceTest" class="method navigator-link" hash-for-method="tc_state_01_cartPersistsAfterRestart">tc_state_01_cartPersistsAfterRestart</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="failed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Android_Suite" title="com.saucelabs.automation.tests.StatePersistenceTest" class="method navigator-link" hash-for-method="tc_state_02_sessionClearedAfterFullReset">tc_state_02_sessionClearedAfterFullReset</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content failed suite-Android_Suite -->
@@ -150,6 +145,11 @@
                         <a href="#" panel-name="suite-Android_Suite" title="com.saucelabs.automation.tests.LoginTest" class="method navigator-link" hash-for-method="tc_login_03_emptyCredentials_shouldShowError">tc_login_03_emptyCredentials_shouldShowError</a> <!-- method navigator-link -->
                       </span>
                       <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Android_Suite" title="com.saucelabs.automation.tests.StatePersistenceTest" class="method navigator-link" hash-for-method="tc_state_02_sessionClearedAfterFullReset">tc_state_02_sessionClearedAfterFullReset</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
                     </div> <!-- method-list-content passed suite-Android_Suite -->
                   </li>
                 </ul>
@@ -178,40 +178,17 @@ Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
 System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.3&apos;
 Driver info: io.appium.java_client.android.AndroidDriver
 Capabilities {appium:app: C:\Users\agoda\Downloads\mo..., appium:appActivity: com.saucelabs.mydemoapp.and..., appium:appPackage: com.saucelabs.mydemoapp.and..., appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:\Users\agoda\Downloads\mo..., appActivity: com.saucelabs.mydemoapp.and..., appPackage: com.saucelabs.mydemoapp.and..., autoGrantPermissions: true, automationName: UiAutomator2, deviceName: Galaxy, fullReset: false, newCommandTimeout: 240, noReset: false, platformName: android, platformVersion: 14}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-A528B, appium:deviceName: R5CR932TQ4Y, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: R5CR932TQ4Y, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 240, appium:noReset: false, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 87, appium:takesScreenshot: true, appium:viewportRect: {height: 2313, left: 0, top: 87, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: d4e61c6e-be32-4847-aa1a-6b2b909a7754
+Session ID: 206cea99-1eee-434c-bc92-4cd6a4b0f339
 	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
 	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
 	at com.saucelabs.automation.screens.BasePage.waitForVisible(BasePage.java:86)
-	at com.saucelabs.automation.screens.CartScreen.openCart(CartScreen.java:86)
+	at com.saucelabs.automation.screens.CartScreen.openCart(CartScreen.java:76)
 	at com.saucelabs.automation.tests.StatePersistenceTest.tc_state_01_cartPersistsAfterRestart(StatePersistenceTest.java:53)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 ... Removed 29 stack frames
 </div> <!-- stack-trace -->
                   <em>
 (Cart items should persist after a full app restart)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="tc_state_02_sessionClearedAfterFullReset">
-                  </a> <!-- tc_state_02_sessionClearedAfterFullReset -->
-                  <span class="method-name">tc_state_02_sessionClearedAfterFullReset</span>
-                  <div class="stack-trace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of element located by AppiumBy.androidUIAutomator: new UiSelector().resourceId(&quot;com.saucelabs.mydemoapp.android:id/nameET&quot;) (tried for 15 second(s) with 500 milliseconds interval)
-Build info: version: &apos;4.13.0&apos;, revision: &apos;ba948ece5b*&apos;
-System info: os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;25.0.3&apos;
-Driver info: io.appium.java_client.android.AndroidDriver
-Capabilities {appium:app: C:\Users\agoda\Downloads\mo..., appium:appActivity: com.saucelabs.mydemoapp.and..., appium:appPackage: com.saucelabs.mydemoapp.and..., appium:autoGrantPermissions: true, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {app: C:\Users\agoda\Downloads\mo..., appActivity: com.saucelabs.mydemoapp.and..., appPackage: com.saucelabs.mydemoapp.and..., autoGrantPermissions: true, automationName: UiAutomator2, deviceName: Galaxy, fullReset: false, newCommandTimeout: 240, noReset: false, platformName: android, platformVersion: 14}, appium:deviceApiLevel: 34, appium:deviceManufacturer: samsung, appium:deviceModel: SM-A528B, appium:deviceName: R5CR932TQ4Y, appium:deviceScreenDensity: 450, appium:deviceScreenSize: 1080x2400, appium:deviceUDID: R5CR932TQ4Y, appium:fullReset: false, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:newCommandTimeout: 240, appium:noReset: false, appium:pixelRatio: 2.8125, appium:platformVersion: 14, appium:statBarHeight: 87, appium:takesScreenshot: true, appium:viewportRect: {height: 2313, left: 0, top: 87, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
-Session ID: ef3f1113-7658-4e66-8307-4823f33d180b
-	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
-	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
-	at com.saucelabs.automation.screens.BasePage.waitForVisible(BasePage.java:86)
-	at com.saucelabs.automation.screens.LoginScreen.waitForScreen(LoginScreen.java:75)
-	at com.saucelabs.automation.tests.StatePersistenceTest.tc_state_02_sessionClearedAfterFullReset(StatePersistenceTest.java:84)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
-... Removed 29 stack frames
-</div> <!-- stack-trace -->
-                  <em>
-(User should be logged out after a full app data reset)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -282,6 +259,23 @@ Session ID: ef3f1113-7658-4e66-8307-4823f33d180b
                   <span class="method-name">tc_login_03_emptyCredentials_shouldShowError</span>
                   <em>
 (Empty credentials should show an error message)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Android_Suite-class-passed -->
+          <div class="suite-Android_Suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.saucelabs.automation.tests.StatePersistenceTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="tc_state_02_sessionClearedAfterFullReset">
+                  </a> <!-- tc_state_02_sessionClearedAfterFullReset -->
+                  <span class="method-name">tc_state_02_sessionClearedAfterFullReset</span>
+                  <em>
+(User should be logged out after a full app data reset)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -362,35 +356,35 @@ data.addRows(8);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation')
 data.setCell(0, 2, 'com.saucelabs.automation.tests.CheckoutTest')
-data.setCell(0, 3, 30258);
+data.setCell(0, 3, 29994);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'tc_state_01_cartPersistsAfterRestart')
 data.setCell(1, 2, 'com.saucelabs.automation.tests.StatePersistenceTest')
-data.setCell(1, 3, 19604);
+data.setCell(1, 3, 19732);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'tc_state_02_sessionClearedAfterFullReset')
-data.setCell(2, 2, 'com.saucelabs.automation.tests.StatePersistenceTest')
-data.setCell(2, 3, 17024);
+data.setCell(2, 1, 'tc_checkout_03_cartPersistsAfterBackground')
+data.setCell(2, 2, 'com.saucelabs.automation.tests.CheckoutTest')
+data.setCell(2, 3, 8911);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'tc_checkout_03_cartPersistsAfterBackground')
-data.setCell(3, 2, 'com.saucelabs.automation.tests.CheckoutTest')
-data.setCell(3, 3, 8846);
+data.setCell(3, 1, 'tc_login_01_validCredentials_shouldReachCatalog')
+data.setCell(3, 2, 'com.saucelabs.automation.tests.LoginTest')
+data.setCell(3, 3, 8156);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'tc_login_02_invalidCredentials_shouldShowError')
+data.setCell(4, 1, 'tc_login_03_emptyCredentials_shouldShowError')
 data.setCell(4, 2, 'com.saucelabs.automation.tests.LoginTest')
-data.setCell(4, 3, 8045);
+data.setCell(4, 3, 7836);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'tc_login_01_validCredentials_shouldReachCatalog')
+data.setCell(5, 1, 'tc_login_02_invalidCredentials_shouldShowError')
 data.setCell(5, 2, 'com.saucelabs.automation.tests.LoginTest')
-data.setCell(5, 3, 8036);
+data.setCell(5, 3, 7808);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'tc_login_03_emptyCredentials_shouldShowError')
-data.setCell(6, 2, 'com.saucelabs.automation.tests.LoginTest')
-data.setCell(6, 3, 7914);
+data.setCell(6, 1, 'tc_state_02_sessionClearedAfterFullReset')
+data.setCell(6, 2, 'com.saucelabs.automation.tests.StatePersistenceTest')
+data.setCell(6, 3, 5838);
 data.setCell(7, 0, 7)
 data.setCell(7, 1, 'tc_checkout_02_addToCart_badgeShouldIncrement')
 data.setCell(7, 2, 'com.saucelabs.automation.tests.CheckoutTest')
-data.setCell(7, 3, 2119);
+data.setCell(7, 3, 2188);
 window.suiteTableData['Android_Suite']= { tableData: data, tableDiv: 'times-div-Android_Suite'}
 return data;
 }
@@ -431,129 +425,127 @@ return data;
               <div class="chronological-class-name">com.saucelabs.automation.tests.LoginTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">406 ms</span>
+                <span class="method-start">395 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">tc_login_01_validCredentials_shouldReachCatalog</span>
-                <span class="method-start">7166 ms</span>
+                <span class="method-start">11297 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=tc_login_01_validCredentials_shouldReachCatalog status=SUCCESS method=LoginTest.tc_...)</span>
-                <span class="method-start">15207 ms</span>
+                <span class="method-start">19461 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">16264 ms</span>
+                <span class="method-start">20702 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">tc_login_02_invalidCredentials_shouldShowError</span>
-                <span class="method-start">21953 ms</span>
+                <span class="method-start">28319 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=tc_login_02_invalidCredentials_shouldShowError status=SUCCESS method=LoginTest.tc_l...)</span>
-                <span class="method-start">30000 ms</span>
+                <span class="method-start">36130 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">31104 ms</span>
+                <span class="method-start">37286 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">tc_login_03_emptyCredentials_shouldShowError</span>
-                <span class="method-start">36443 ms</span>
+                <span class="method-start">45381 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=tc_login_03_emptyCredentials_shouldShowError status=SUCCESS method=LoginTest.tc_log...)</span>
-                <span class="method-start">44360 ms</span>
+                <span class="method-start">53220 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.saucelabs.automation.tests.CheckoutTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">45960 ms</span>
+                <span class="method-start">55017 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">loginToCatalog</span>
-                <span class="method-start">52374 ms</span>
+                <span class="method-start">62614 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation</span>
-                <span class="method-start">60544 ms</span>
+                <span class="method-start">70797 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=tc_checkout_01_fullPurchaseFlow_shouldShowConfirmation status=SUCCESS method=Checko...)</span>
-                <span class="method-start">90804 ms</span>
+                <span class="method-start">100794 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">91978 ms</span>
+                <span class="method-start">102009 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">loginToCatalog</span>
-                <span class="method-start">98165 ms</span>
+                <span class="method-start">109019 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">tc_checkout_02_addToCart_badgeShouldIncrement</span>
-                <span class="method-start">106892 ms</span>
+                <span class="method-start">117134 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=tc_checkout_02_addToCart_badgeShouldIncrement status=SUCCESS method=CheckoutTest.tc...)</span>
-                <span class="method-start">109014 ms</span>
+                <span class="method-start">119323 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">110107 ms</span>
+                <span class="method-start">120485 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">loginToCatalog</span>
-                <span class="method-start">115112 ms</span>
+                <span class="method-start">127109 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">tc_checkout_03_cartPersistsAfterBackground</span>
-                <span class="method-start">123241 ms</span>
+                <span class="method-start">135285 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=tc_checkout_03_cartPersistsAfterBackground status=SUCCESS method=CheckoutTest.tc_ch...)</span>
-                <span class="method-start">132089 ms</span>
+                <span class="method-start">144199 ms</span>
               </div> <!-- configuration-method after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">com.saucelabs.automation.tests.StatePersistenceTest</div> <!-- chronological-class-name -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">133359 ms</span>
+                <span class="method-start">145566 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">loginAndAddToCart</span>
-                <span class="method-start">139753 ms</span>
+                <span class="method-start">151885 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">tc_state_01_cartPersistsAfterRestart</span>
-                <span class="method-start">149064 ms</span>
+                <span class="method-start">161458 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown([TestResult name=tc_state_01_cartPersistsAfterRestart status=FAILURE method=StatePersistenceTest.tc_...)</span>
-                <span class="method-start">168680 ms</span>
+                <span class="method-start">181198 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">170262 ms</span>
+                <span class="method-start">182963 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">loginAndAddToCart</span>
-                <span class="method-start">176401 ms</span>
+                <span class="method-start">190646 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">tc_state_02_sessionClearedAfterFullReset</span>
-                <span class="method-start">185976 ms</span>
+                <span class="method-start">200161 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">tearDown([TestResult name=tc_state_02_sessionClearedAfterFullReset status=FAILURE method=StatePersistenceTest...)</span>
-                <span class="method-start">203006 ms</span>
+                <span class="method-name">tearDown([TestResult name=tc_state_02_sessionClearedAfterFullReset status=SUCCESS method=StatePersistenceTest...)</span>
+                <span class="method-start">206001 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
