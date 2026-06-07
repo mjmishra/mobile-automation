@@ -90,6 +90,8 @@ jobs:
           echo "Fetching latest APK from GitHub releases..."
           APK_URL=$(curl -s https://api.github.com/repos/saucelabs/my-demo-app-android/releases/latest \
             | grep "browser_download_url.*\.apk" \
+            | grep -v "androidTest" \
+            | head -1 \
             | cut -d '"' -f 4)
           echo "APK URL: $APK_URL"
           curl -L "$APK_URL" -o apps/MyDemoApp.apk
@@ -208,6 +210,9 @@ jobs:
           echo "Fetching latest iOS build from GitHub releases..."
           APP_URL=$(curl -s https://api.github.com/repos/saucelabs/my-demo-app-ios/releases/latest \
             | grep "browser_download_url.*\.zip" \
+            | grep -v "XCUITest" \
+            | grep -v "Runner" \ 
+            | head -1 \
             | cut -d '"' -f 4)
           echo "App URL: $APP_URL"
           curl -L "$APP_URL" -o apps/MyDemoApp.app.zip
