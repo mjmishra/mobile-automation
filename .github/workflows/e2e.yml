@@ -114,10 +114,20 @@ jobs:
             -memory 2048
           disable-animations: true
           script: |
-            echo "Elumator is ready"
+            echo "Waiting for emulator to come online..."
             adb wait-for-device
+            echo "Waiting for boot to complete..."
+            adb shell "while [[ -z $(getprop sys.boot_completed) ]]; do sleep 3; done"
+            echo "Disabling animations..."
+            adb shell settings put global window_animation_scale 0
+            adb shell settings put global transition_animation_scale 0
+            adb shell settings put global animator_duration_scale 0
+            echo "Unlocking screen..."
             adb shell input keyevent 82
-            mvn test -Dplatform=android -DANDROID_DEVICE=emulator-5554 -DANDROID_VERSION=${{ matrix.api-level }}.0
+            adb shell input keyevent 4
+            echo "Emulator fully ready. Running tests..."
+  adb devices
+  mvn test -Dplatform=android -DANDROID_DEVICE=emulator-5554 -DANDROID_VERSION=${{ matrix.api-level }}.0
 
       # ── 8. Upload Appium logs on failure ──────────────────────────────────
       - name: Upload Appium server log
