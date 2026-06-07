@@ -3,16 +3,6 @@ package com.saucelabs.automation.screens;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 
-/**
- * CartScreen
- * ----------
- * iOS locators sourced directly from PageObject.swift:
- *   app.buttons["Cart-tab-item"]              → cart icon in tab bar
- *   app.otherElements["Cart-screen"]          → cart screen container
- *   cartScreen.staticTexts["No Items"]        → empty cart message
- *   cartScreen.buttons["GoShopping"]          → go shopping button when cart is empty
- *   cartScreen.staticTexts[productName]       → item row by product name
- */
 public class CartScreen extends BasePage {
 
     // ── Locators ──────────────────────────────────────────────────────────

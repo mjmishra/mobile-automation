@@ -7,10 +7,6 @@ package com.saucelabs.automation.config;
 public enum Platform {
     ANDROID, IOS;
 
-    /**
-     * Reads the {@code platform} system property and returns the matching enum.
-     * Defaults to {@code ANDROID} when the property is absent or unrecognised.
-     */
     public static Platform fromSystem() {
         String value = System.getProperty("platform", "android").trim().toUpperCase();
         try {

@@ -3,14 +3,6 @@ package com.saucelabs.automation.screens;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 
-/**
- * ProductCatalogScreen
- * --------------------
- * iOS locators sourced directly from PageObject.swift:
- *   app.otherElements["Catalog-screen"]
- *   app.otherElements.matching(identifier: "ProductItem").element(boundBy: itemNumber)
- *   app.staticTexts[itemName]
- */
 public class ProductCatalogScreen extends BasePage {
 
     // ── Locators ──────────────────────────────────────────────────────────

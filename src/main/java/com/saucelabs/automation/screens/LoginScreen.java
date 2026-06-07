@@ -3,9 +3,6 @@ package com.saucelabs.automation.screens;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 
-/**
- * LoginScreen
- */
 public class LoginScreen extends BasePage {
 
     // ── Locators ──────────────────────────────────────────────────────────

@@ -8,10 +8,6 @@ import com.saucelabs.automation.screens.CheckoutScreen.ShippingDetails;
  * --------
  * Central repository for all test input data.
  *
- * Keeping data here means:
- *  - Tests stay readable (no magic strings inline)
- *  - Changing a credential or address requires one edit
- *  - Data can later be driven from a JSON / Excel file with minimal refactoring
  */
 public final class TestData {
 

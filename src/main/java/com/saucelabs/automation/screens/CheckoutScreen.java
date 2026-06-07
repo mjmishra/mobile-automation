@@ -3,15 +3,6 @@ package com.saucelabs.automation.screens;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 
-/**
- * CheckoutScreen
- * --------------
- * Multi-step checkout flow:
- *   Step 1 → Shipping info
- *   Step 2 → Payment info
- *   Step 3 → Review order → Place order
- *   Step 4 → Order confirmation
- */
 public class CheckoutScreen extends BasePage {
 
     // ── Step 1: Shipping ──────────────────────────────────────────────────

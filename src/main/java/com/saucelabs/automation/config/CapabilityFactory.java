@@ -7,19 +7,6 @@ import java.nio.file.Paths;
 
 import static com.saucelabs.automation.config.ConfigManager.*;
 
-/**
- * CapabilityFactory
- * -----------------
- * Builds the correct {@link Capabilities} object for the requested platform.
- *
- * Uses {@link MutableCapabilities} with explicit "appium:" prefixed keys.
- * This approach is compatible with all Appium Java Client versions (8.x / 9.x)
- * and avoids version-compatibility issues across Appium Java Client releases.
- *
- * <pre>
- *   Capabilities caps = CapabilityFactory.build(Platform.ANDROID);
- * </pre>
- */
 public final class CapabilityFactory {
 
     public static Capabilities build(Platform platform) {

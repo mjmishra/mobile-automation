@@ -13,24 +13,6 @@ import org.slf4j.LoggerFactory;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * DriverManager
- * -------------
- * Manages one {@link AppiumDriver} instance per thread (safe for parallel runs).
- *
- * <pre>
- *   DriverManager.initDriver(Platform.ANDROID);
- *   AppiumDriver driver = DriverManager.getDriver();
- *   DriverManager.quitDriver();
- * </pre>
- *
- * Platform routing:
- *   ANDROID  →  {@link AndroidDriver}
- *   IOS      →  {@link IOSDriver}
- *
- * Both extend {@link AppiumDriver} which extends Selenium's RemoteWebDriver,
- * so all standard Selenium APIs (findElement, WebDriverWait, etc.) work unchanged.
- */
 public final class DriverManager {
 
     private static final Logger LOG = LoggerFactory.getLogger(DriverManager.class);

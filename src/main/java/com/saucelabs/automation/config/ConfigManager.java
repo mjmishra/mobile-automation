@@ -3,19 +3,6 @@ package com.saucelabs.automation.config;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-/**
- * ConfigManager
- * -------------
- * Single source of truth for all configuration values.
- *
- * Priority (highest → lowest):
- *   1. System properties  (-Dkey=value  on the Maven / JVM command line)
- *   2. Environment variables
- *   3. Hard-coded defaults below
- *
- * Usage:
- *   String host = ConfigManager.get("APPIUM_HOST", "localhost");
- */
 public final class ConfigManager {
 
     // ── Appium server ──────────────────────────────────────────────────────
