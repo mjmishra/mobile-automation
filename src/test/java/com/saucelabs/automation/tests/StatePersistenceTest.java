@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import java.util.Map;
 
-// Below  both tests will fail because app does not support to maintain the login state after app restart. 
+// First test tc_state_01_cartPersistsAfterRestart  will fail because app does not maintain the login state after app restart. 
 // It means user need to login again if he re launches the app.
 
 public class StatePersistenceTest extends BaseTest {
