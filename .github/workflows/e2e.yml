@@ -126,8 +126,8 @@ jobs:
             adb shell input keyevent 82
             adb shell input keyevent 4
             echo "Emulator fully ready. Running tests..."
-  adb devices
-  mvn test -Dplatform=android -DANDROID_DEVICE=emulator-5554 -DANDROID_VERSION=${{ matrix.api-level }}.0
+            adb devices
+            mvn test -Dplatform=android -DANDROID_DEVICE=emulator-5554 -DANDROID_VERSION=${{ matrix.api-level }}.0
 
       # ── 8. Upload Appium logs on failure ──────────────────────────────────
       - name: Upload Appium server log
