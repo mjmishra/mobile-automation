@@ -1,26 +1,26 @@
 name: Mobile E2E Tests
 
-# ── Triggers ──────────────────────────────────────────────────────────────────
+# ── Triggers ────────────────────────────────────────────────────────────────
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main, develop ]        # Run on every push to main or develop
   pull_request:
-    branches: [ main ]
+    branches: [ main ]                 # Run on every PR targeting main
   schedule:
-    - cron: '0 2 * * *'
-  workflow_dispatch:
+    - cron: '0 2 * * *'               # Nightly at 02:00 UTC
+  workflow_dispatch:                   # Allow manual trigger from GitHub UI
     inputs:
       platform:
         description: 'Platform to test'
         required: true
-        default: 'android'
+        default: 'both'
         type: choice
         options:
           - android
           - ios
           - both
 
-# ── Global env ─────────────────────────────────────────────────────────────────
+# ── Global env variables ─────────────────────────────────────────────────────
 env:
   APPIUM_PORT: 4723
   EXPLICIT_TIMEOUT: 20
@@ -35,128 +35,97 @@ jobs:
     name: Android Tests (API ${{ matrix.api-level }})
     runs-on: ubuntu-latest
 
-    if: |
-      github.event_name == 'push' ||
-      github.event_name == 'pull_request' ||
-      github.event_name == 'schedule' ||
-      github.event_name == 'repository_dispatch' ||
-      (github.event_name == 'workflow_dispatch' && (github.event.inputs.platform == 'android' || github.event.inputs.platform == 'both'))
-
+    # Run on multiple API levels in parallel
     strategy:
-      fail-fast: false
+      fail-fast: false                 # Don't cancel other matrix jobs if one fails
       matrix:
-        api-level: [ 29, 33 ]
+        api-level: [ 31, 33 ]          # Android 12 and Android 13
+
+    # Skip android job if manual trigger selected ios only
+    if: >
+      github.event_name != 'workflow_dispatch' ||
+      github.event.inputs.platform == 'android' ||
+      github.event.inputs.platform == 'both'
 
     steps:
 
-      # ── Step 1: Enable KVM hardware acceleration ──────────────────────────
-      # Critical fix: without KVM emulator crashes with exit code 224
-      - name: Enable KVM group permissions
-        run: |
-          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' \
-            | sudo tee /etc/udev/rules.d/99-kvm4all.rules
-          sudo udevadm control --reload-rules
-          sudo udevadm trigger --name-match=kvm
-          echo "KVM enabled:"
-          ls -la /dev/kvm
-
-      # ── Step 2: Checkout code ─────────────────────────────────────────────
+      # ── 1. Checkout ────────────────────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ── Step 3: Java setup ────────────────────────────────────────────────
+      # ── 2. Java setup ─────────────────────────────────────────────────────
       - name: Set up Java 17
         uses: actions/setup-java@v4
         with:
           java-version: '17'
           distribution: 'temurin'
-          cache: maven
+          cache: maven                 # Built-in Maven cache in setup-java
 
-      # ── Step 4: Node setup ────────────────────────────────────────────────
+      # ── 3. Node.js setup ──────────────────────────────────────────────────
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # ── Step 5: Install Appium ────────────────────────────────────────────
+      # ── 4. Install Appium and driver ──────────────────────────────────────
       - name: Install Appium and UiAutomator2 driver
         run: |
           npm install -g appium@latest
           appium driver install uiautomator2
-          echo "Installed drivers:"
           appium driver list
 
-      # ── Step 6: Start Appium server ───────────────────────────────────────
+      # ── 5. Start Appium server ────────────────────────────────────────────
       - name: Start Appium server
         run: |
-          appium server --port ${{ env.APPIUM_PORT }} --log-level info > appium-android.log 2>&1 &
+          appium server --port ${{ env.APPIUM_PORT }} --log-level info \
+            > appium-android.log 2>&1 &
           echo "Waiting for Appium to start..."
-          sleep 8
+          sleep 5
           curl -f http://localhost:${{ env.APPIUM_PORT }}/status && echo "Appium is UP"
 
-      # ── Step 7: Download APK ──────────────────────────────────────────────
-      - name: Download Android APK
+      # ── 6. Download APK ───────────────────────────────────────────────────
+      - name: Download Sauce Labs Demo APK
         run: |
           mkdir -p apps
-          if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
-            APK_URL="${{ github.event.client_payload.apk_url }}"
-            echo "Using APK from dispatch payload: $APK_URL"
-          else
-            echo "Fetching latest APK from GitHub releases..."
-            APK_URL=$(curl -s https://api.github.com/repos/saucelabs/my-demo-app-android/releases/latest | grep "browser_download_url.*\.apk" | grep -v "androidTest" | head -1 | cut -d '"' -f 4)
-            echo "Latest APK URL: $APK_URL"
-          fi
+          echo "Fetching latest APK from GitHub releases..."
+          APK_URL=$(curl -s https://api.github.com/repos/saucelabs/my-demo-app-android/releases/latest \
+            | grep "browser_download_url.*\.apk" \
+            | cut -d '"' -f 4)
+          echo "APK URL: $APK_URL"
           curl -L "$APK_URL" -o apps/MyDemoApp.apk
-          echo "Downloaded APK:"
           ls -lh apps/MyDemoApp.apk
 
-      # ── Step 8: Boot emulator and run tests ───────────────────────────────
-      - name: Run Android tests on API ${{ matrix.api-level }} emulator
+      # ── 7. Boot emulator and run tests ────────────────────────────────────
+      - name: Run Android tests on API ${{ matrix.api-level }}
         uses: reactivecircus/android-emulator-runner@v2
         with:
           api-level: ${{ matrix.api-level }}
-          target: default
+          target: google_apis
           arch: x86_64
           profile: pixel_6
           avd-name: test_avd_${{ matrix.api-level }}
-          force-avd-creation: true
-          emulator-options: -no-snapshot -no-window -no-audio -no-boot-anim -gpu off -memory 2048 -cores 2
+          emulator-options: >-
+            -no-window
+            -no-audio
+            -no-boot-anim
+            -gpu swiftshader_indirect
+            -memory 2048
           disable-animations: true
+          pre-emulator-launch-script: |
+            echo "Setting up emulator..."
           script: |
-            echo "=== Step 1: Wait for ADB connection ==="
+            echo "Emulator booted. Running tests..."
             adb wait-for-device
-            echo "ADB connected"
-
-            echo "=== Step 2: Poll sys.boot_completed on HOST shell ==="
-            boot_completed=""
-            attempts=0
-            until [[ "$boot_completed" == "1" ]] || [[ $attempts -ge 60 ]]; do
-              boot_completed=$(adb shell getprop sys.boot_completed 2>/dev/null | tr -d '\r\n')
-              echo "Boot status: '$boot_completed' (attempt $((attempts+1))/60)"
-              sleep 5
-              attempts=$((attempts+1))
-            done
-
-            if [[ "$boot_completed" != "1" ]]; then
-              echo "ERROR: Emulator failed to boot after 5 minutes"
-              adb devices
-              exit 1
-            fi
-
-            echo "=== Step 3: Emulator booted. Preparing device ==="
-            adb shell settings put global window_animation_scale 0
-            adb shell settings put global transition_animation_scale 0
-            adb shell settings put global animator_duration_scale 0
             adb shell input keyevent 82
-            adb shell input keyevent 4
+            mvn test \
+              -Dplatform=android \
+              -DANDROID_DEVICE=emulator-5554 \
+              -DANDROID_VERSION=${{ matrix.api-level }}.0 \
+              -DEXPLICIT_TIMEOUT=${{ env.EXPLICIT_TIMEOUT }} \
+              -DCOMMAND_TIMEOUT=${{ env.COMMAND_TIMEOUT }} \
+              -DAPPIUM_PORT=${{ env.APPIUM_PORT }}
 
-            echo "=== Step 4: Device status ==="
-            adb devices
-
-            echo "=== Step 5: Running tests ==="
-            mvn test -Dplatform=android -DANDROID_DEVICE=emulator-5554 -DANDROID_VERSION=${{ matrix.api-level }}.0 -DEXPLICIT_TIMEOUT=${{ env.EXPLICIT_TIMEOUT }} -DCOMMAND_TIMEOUT=${{ env.COMMAND_TIMEOUT }} -DAPPIUM_PORT=${{ env.APPIUM_PORT }}
-
-      # ── Step 9: Upload Appium log on failure ──────────────────────────────
+      # ── 8. Upload Appium logs on failure ──────────────────────────────────
       - name: Upload Appium server log
         if: failure()
         uses: actions/upload-artifact@v4
@@ -164,7 +133,7 @@ jobs:
           name: appium-log-android-api${{ matrix.api-level }}
           path: appium-android.log
 
-      # ── Step 10: Upload test report ───────────────────────────────────────
+      # ── 9. Upload test report (always, even on failure) ───────────────────
       - name: Upload test report
         if: always()
         uses: actions/upload-artifact@v4
@@ -178,13 +147,9 @@ jobs:
   # ════════════════════════════════════════════════════════════════════════════
   ios:
     name: iOS Tests (${{ matrix.device }})
-    runs-on: macos-14
+    runs-on: macos-14                  # Apple Silicon – required for XCUITest
 
-    if: |
-      github.event_name == 'schedule' ||
-      github.event_name == 'repository_dispatch' ||
-      (github.event_name == 'workflow_dispatch' && (github.event.inputs.platform == 'ios' || github.event.inputs.platform == 'both'))
-
+    # Run on multiple iOS devices in parallel
     strategy:
       fail-fast: false
       matrix:
@@ -194,13 +159,19 @@ jobs:
           - device: "iPhone 14"
             ios-version: "16.4"
 
+    # Skip iOS job if manual trigger selected android only
+    if: >
+      github.event_name != 'workflow_dispatch' ||
+      github.event.inputs.platform == 'ios' ||
+      github.event.inputs.platform == 'both'
+
     steps:
 
-      # ── Step 1: Checkout code ─────────────────────────────────────────────
+      # ── 1. Checkout ────────────────────────────────────────────────────────
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # ── Step 2: Java setup ────────────────────────────────────────────────
+      # ── 2. Java setup ─────────────────────────────────────────────────────
       - name: Set up Java 17
         uses: actions/setup-java@v4
         with:
@@ -208,89 +179,67 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
-      # ── Step 3: Node setup ────────────────────────────────────────────────
+      # ── 3. Node.js setup ──────────────────────────────────────────────────
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
-      # ── Step 4: Install Appium ────────────────────────────────────────────
+      # ── 4. Install Appium and XCUITest driver ─────────────────────────────
       - name: Install Appium and XCUITest driver
         run: |
           npm install -g appium@latest
           appium driver install xcuitest
-          echo "Installed drivers:"
           appium driver list
 
-      # ── Step 5: Start Appium server ───────────────────────────────────────
+      # ── 5. Start Appium server ────────────────────────────────────────────
       - name: Start Appium server
         run: |
-          appium server --port ${{ env.APPIUM_PORT }} --log-level info --log appium-ios.log &
+          appium server --port ${{ env.APPIUM_PORT }} --log-level info \
+            > appium-ios.log 2>&1 &
           echo "Waiting for Appium to start..."
-          sleep 8
+          sleep 5
           curl -f http://localhost:${{ env.APPIUM_PORT }}/status && echo "Appium is UP"
 
-      # ── Step 6: Download iOS app ──────────────────────────────────────────
-      - name: Download iOS Simulator app
+      # ── 6. Download iOS app ───────────────────────────────────────────────
+      - name: Download Sauce Labs Demo iOS app
         run: |
           mkdir -p apps
-          if [ "${{ github.event_name }}" == "repository_dispatch" ]; then
-            APP_URL="${{ github.event.client_payload.app_url }}"
-            echo "Using app from dispatch payload: $APP_URL"
-          else
-            echo "Fetching latest iOS build from GitHub releases..."
-            APP_URL=$(curl -s https://api.github.com/repos/saucelabs/my-demo-app-ios/releases/latest | grep "browser_download_url.*\.zip" | grep -v "XCUITest" | grep -v "Runner" | head -1 | cut -d '"' -f 4)
-            echo "Latest app URL: $APP_URL"
-          fi
+          echo "Fetching latest iOS build from GitHub releases..."
+          APP_URL=$(curl -s https://api.github.com/repos/saucelabs/my-demo-app-ios/releases/latest \
+            | grep "browser_download_url.*\.zip" \
+            | cut -d '"' -f 4)
+          echo "App URL: $APP_URL"
           curl -L "$APP_URL" -o apps/MyDemoApp.app.zip
-          echo "Downloaded app:"
           ls -lh apps/MyDemoApp.app.zip
 
-      # ── Step 7: Check available simulators ───────────────────────────────
-      - name: List available simulators
+      # ── 7. Boot iOS simulator ─────────────────────────────────────────────
+      - name: Boot iOS Simulator – ${{ matrix.device }}
         run: |
-          echo "Available iPhone simulators:"
-          xcrun simctl list devices available | grep iPhone
-
-      # ── Step 8: Boot iOS Simulator ────────────────────────────────────────
-      - name: Boot iOS Simulator
-        run: |
+          echo "Available simulators:"
+          xcrun simctl list devices available | grep "${{ matrix.device }}"
           echo "Booting ${{ matrix.device }}..."
           xcrun simctl boot "${{ matrix.device }}" || true
-          echo "Waiting for boot to complete..."
           xcrun simctl bootstatus "${{ matrix.device }}" -b
-          echo "Waiting extra 30s for all simulator services to settle..."
-          sleep 30
-          open -a Simulator || true
-          sleep 10
-          echo "Simulator status:"
-          xcrun simctl list devices | grep "${{ matrix.device }}"
+          echo "Simulator is ready."
 
-      # ── Step 9: Pre-build WebDriverAgent ─────────────────────────────────
-      - name: Pre-build WebDriverAgent
-        run: |
-          WDA_PATH=$(find ~/.appium -name "WebDriverAgent.xcodeproj" 2>/dev/null | head -1)
-          if [ -n "$WDA_PATH" ]; then
-            echo "Pre-building WDA at: $WDA_PATH"
-            xcodebuild build-for-testing \
-              -project "$WDA_PATH" \
-              -scheme WebDriverAgentRunner \
-              -destination "platform=iOS Simulator,name=${{ matrix.device }}" \
-              CODE_SIGNING_ALLOWED=NO 2>&1 | tail -20 || echo "WDA pre-build skipped"
-          else
-            echo "WDA not found — will build on first test run"
-          fi
-
-      # ── Step 10: Run iOS tests ────────────────────────────────────────────
+      # ── 8. Run iOS tests ──────────────────────────────────────────────────
       - name: Run iOS tests on ${{ matrix.device }}
-        run: mvn test -Dplatform=ios -DIOS_DEVICE="${{ matrix.device }}" -DIOS_VERSION="${{ matrix.ios-version }}" -DCOMMAND_TIMEOUT=${{ env.COMMAND_TIMEOUT }} -DEXPLICIT_TIMEOUT=${{ env.EXPLICIT_TIMEOUT }} -DAPPIUM_PORT=${{ env.APPIUM_PORT }}
+        run: |
+          mvn test \
+            -Dplatform=ios \
+            -DIOS_DEVICE="${{ matrix.device }}" \
+            -DIOS_VERSION="${{ matrix.ios-version }}" \
+            -DEXPLICIT_TIMEOUT=${{ env.EXPLICIT_TIMEOUT }} \
+            -DCOMMAND_TIMEOUT=${{ env.COMMAND_TIMEOUT }} \
+            -DAPPIUM_PORT=${{ env.APPIUM_PORT }}
 
-      # ── Step 11: Shutdown simulator ───────────────────────────────────────
+      # ── 9. Shutdown simulator ─────────────────────────────────────────────
       - name: Shutdown iOS Simulator
         if: always()
         run: xcrun simctl shutdown "${{ matrix.device }}" || true
 
-      # ── Step 12: Upload Appium log on failure ─────────────────────────────
+      # ── 10. Upload Appium logs on failure ─────────────────────────────────
       - name: Upload Appium server log
         if: failure()
         uses: actions/upload-artifact@v4
@@ -298,7 +247,7 @@ jobs:
           name: appium-log-ios-${{ matrix.device }}
           path: appium-ios.log
 
-      # ── Step 13: Upload test report ───────────────────────────────────────
+      # ── 11. Upload test report ────────────────────────────────────────────
       - name: Upload test report
         if: always()
         uses: actions/upload-artifact@v4
@@ -308,24 +257,25 @@ jobs:
           retention-days: 14
 
   # ════════════════════════════════════════════════════════════════════════════
-  # NOTIFY JOB
+  # NOTIFY JOB — runs after both Android and iOS finish
   # ════════════════════════════════════════════════════════════════════════════
   notify:
     name: Notify Results
     runs-on: ubuntu-latest
-    needs: [ android, ios ]
-    if: always()
+    needs: [ android, ios ]            # Wait for both jobs to complete
+    if: always()                       # Run even if tests failed
 
     steps:
 
-      - name: Send Slack notification
+      # ── Slack notification ─────────────────────────────────────────────────
+      - name: Notify Slack
+        if: always()
         uses: 8398a7/action-slack@v3
         with:
           status: ${{ job.status }}
-          fields: repo, message, commit, author, eventName, ref, workflow
+          fields: repo, message, commit, author, action, eventName, ref, workflow
           text: |
             Mobile E2E Tests completed.
-            Triggered by: ${{ github.event_name }}
             Android: ${{ needs.android.result }}
             iOS:     ${{ needs.ios.result }}
         env:
