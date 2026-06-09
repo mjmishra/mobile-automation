@@ -90,6 +90,8 @@ jobs:
           echo "Fetching latest APK from GitHub releases..."
           APK_URL=$(curl -s https://api.github.com/repos/saucelabs/my-demo-app-android/releases/latest \
             | grep "browser_download_url.*\.apk" \
+            | grep -v "androidTest" \
+            | head -1 \
             | cut -d '"' -f 4)
           echo "APK URL: $APK_URL"
           curl -L "$APK_URL" -o apps/MyDemoApp.apk
@@ -111,19 +113,21 @@ jobs:
             -gpu swiftshader_indirect
             -memory 2048
           disable-animations: true
-          pre-emulator-launch-script: |
-            echo "Setting up emulator..."
           script: |
-            echo "Emulator booted. Running tests..."
+            echo "Waiting for emulator to come online..."
             adb wait-for-device
+            echo "Waiting for boot to complete..."
+            adb shell "while [[ -z $(getprop sys.boot_completed) ]]; do sleep 3; done"
+            echo "Disabling animations..."
+            adb shell settings put global window_animation_scale 0
+            adb shell settings put global transition_animation_scale 0
+            adb shell settings put global animator_duration_scale 0
+            echo "Unlocking screen..."
             adb shell input keyevent 82
-            mvn test \
-              -Dplatform=android \
-              -DANDROID_DEVICE=emulator-5554 \
-              -DANDROID_VERSION=${{ matrix.api-level }}.0 \
-              -DEXPLICIT_TIMEOUT=${{ env.EXPLICIT_TIMEOUT }} \
-              -DCOMMAND_TIMEOUT=${{ env.COMMAND_TIMEOUT }} \
-              -DAPPIUM_PORT=${{ env.APPIUM_PORT }}
+            adb shell input keyevent 4
+            echo "Emulator fully ready. Running tests..."
+            adb devices
+            mvn test -Dplatform=android -DANDROID_DEVICE=emulator-5554 -DANDROID_VERSION=${{ matrix.api-level }}.0
 
       # ── 8. Upload Appium logs on failure ──────────────────────────────────
       - name: Upload Appium server log
@@ -208,6 +212,9 @@ jobs:
           echo "Fetching latest iOS build from GitHub releases..."
           APP_URL=$(curl -s https://api.github.com/repos/saucelabs/my-demo-app-ios/releases/latest \
             | grep "browser_download_url.*\.zip" \
+            | grep -v "XCUITest" \
+            | grep -v "Runner" \
+            | head -1 \
             | cut -d '"' -f 4)
           echo "App URL: $APP_URL"
           curl -L "$APP_URL" -o apps/MyDemoApp.app.zip
@@ -225,14 +232,7 @@ jobs:
 
       # ── 8. Run iOS tests ──────────────────────────────────────────────────
       - name: Run iOS tests on ${{ matrix.device }}
-        run: |
-          mvn test \
-            -Dplatform=ios \
-            -DIOS_DEVICE="${{ matrix.device }}" \
-            -DIOS_VERSION="${{ matrix.ios-version }}" \
-            -DEXPLICIT_TIMEOUT=${{ env.EXPLICIT_TIMEOUT }} \
-            -DCOMMAND_TIMEOUT=${{ env.COMMAND_TIMEOUT }} \
-            -DAPPIUM_PORT=${{ env.APPIUM_PORT }}
+        run: mvn test -Dplatform=ios -DIOS_DEVICE="${{ matrix.device }}" -DIOS_VERSION="${{ matrix.ios-version }}" -DCOMMAND_TIMEOUT=300 -DEXPLICIT_TIMEOUT=20
 
       # ── 9. Shutdown simulator ─────────────────────────────────────────────
       - name: Shutdown iOS Simulator
